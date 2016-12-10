@@ -1,0 +1,25 @@
+{
+  "name": "front-end-exercise",
+  "version": "0.0.1",
+  "description": "Affectv Front End Test",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Angelo Di Marzio",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eastangelo/ANGULAR-DYNAMIC-HTML-GENERATOR.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-connect": "^4.2.0",
+    "gulp-minify-css": "^1.2.4"
+  },
+  "dependencies": {
+    "angular": "^1.6.0",
+    "bootstrap": "^3.3.7"
+  }
+}

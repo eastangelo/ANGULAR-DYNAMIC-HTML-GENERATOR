@@ -1,0 +1,13 @@
+html > body {
+  margin: 0;
+  padding: 0;
+}
+html > body > header {
+  background: #311B50 url("/img/affectv-logo.png") no-repeat fixed top;
+  height: 60px;
+}
+
+.container {
+  background: #ccc;
+  color: #f0f;
+}
