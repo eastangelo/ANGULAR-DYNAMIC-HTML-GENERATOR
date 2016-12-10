@@ -3,22 +3,90 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/angularjs-color-picker/dist/angularjs-color-picker.min.css" />
+    <link rel="stylesheet" href="node_modules/angularjs-color-picker/dist/themes/angularjs-color-picker-bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <script src="node_modules/angular/angular.min.js"></script>
+
+    <script src="node_modules/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="node_modules/angularjs-color-picker/dist/angularjs-color-picker.min.js"></script>
+
     <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
 </head>
 
 <body>
     <header></header>
 
-    <div class="container">
+    <div class="container" ng-controller="mainController">
         <div class="row">
             <div class="col-sm-6">
-                colonna 1
+                <h1>Properties:</h1>
+                <form class="form-horizontal">
+                    <h3>Product Info Box:</h3>
+                    <div class="form-group">
+                        <label for="style-ad" class="col-sm-4 control-label">Background Color:</label>
+                        <div class="col-sm-8">
+                            <select name="style-ad" id="style-ad"
+                                    ng-options="option.name for option in data.availableStyle track by option.id"
+                                    ng-model="properties.style"></select>
+                        </div>
+                    </div>
+                    <h3>Product Info Box:</h3>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Background Color:</label>
+                        <div class="col-sm-8">
+                            <color-picker ng-model="properties.box.background" options="options"></color-picker>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Text Color:</label>
+                        <div class="col-sm-8">
+                            <color-picker ng-model="properties.box.color" options="options"></color-picker>
+                        </div>
+                    </div>
+
+                    <h3>Link Button:</h3>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Background Color:</label>
+                        <div class="col-sm-8">
+                            <color-picker ng-model="properties.link.background" options="options"></color-picker>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Text Color:</label>
+                        <div class="col-sm-8">
+                            <color-picker ng-model="properties.link.color" options="options"></color-picker>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Get Product Feed and Generate Ad</button>
+                </form>
+
             </div>
             <div class="col-sm-6">
-                colonan preview
+                <div class="row">
+                    <h2>Preview:</h2>
+                    <div class="preview-container">
+                        <div id="{{products[0].id}}" class="single-image text-center" ng-if="properties.style.id==1">
+                            <img ng-src="{{products[0].img}}">
+                            <div class="desc" ng-style="properties.box">
+                                <h4>{{products[0].name}}</h4>
+                                <p>{{products[0].description}}</p>
+                                <a href="{{products[0].link}}" class="btn btn-secondary" ng-style="properties.link">Buy now</a>
+                            </div>
+                        </div>
+                        <div class="carousel-image" ng-if="properties.style.id==2">stule 2</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h2>HTML:</h2>
+                    <div class="col-xs-12">
+                        {{encoded}}
+                        {{decoded}}
+                        <code>HTML CODE</code>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

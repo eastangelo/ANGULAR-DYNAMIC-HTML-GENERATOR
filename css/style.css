@@ -11,3 +11,8 @@ html > body > header {
   background: #ccc;
   color: #f0f;
 }
+
+.preview-container {
+  width: 300px;
+  height: 250px;
+}

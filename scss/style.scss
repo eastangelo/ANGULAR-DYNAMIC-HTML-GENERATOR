@@ -4,7 +4,7 @@ html {
         padding: 0;
 
         > header {
-            background: #311B50 url("/img/logo.png") no-repeat fixed top;
+            background: #311B50 url("/img/affectv-logo.png") no-repeat fixed top;
             height: 60px;
         }
     }
@@ -12,6 +12,11 @@ html {
 
 .container{
     background: #ccc;
-    color: #000;
+    color: #f0f;
 
+}
+
+.preview-container{
+    width: 300px;
+    height: 250px;
 }
