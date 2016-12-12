@@ -1,2 +1,2 @@
-# ANGULAR-ADV-GENERATOR
-generate custom ADV with Angular
+# ANGULAR-DYNAMIC-HTML-GENERATOR
+generate a simple HTML preview and code eith Angular 1.6

@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/angularjs-color-picker/dist/angularjs-color-picker.min.css" />
     <link rel="stylesheet" href="node_modules/angularjs-color-picker/dist/themes/angularjs-color-picker-bootstrap.min.css" />
+    <link rel="stylesheet" href="node_modules/" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <script src="node_modules/angular/angular.min.js"></script>
@@ -14,6 +15,7 @@
 
     <script src="js/app.js"></script>
     <script src="js/controller.js"></script>
+    <script src="js/directive.js"></script>
 </head>
 
 <body>
@@ -27,7 +29,7 @@
                     <h3>Product Info Box:</h3>
                     <div class="form-group">
                         <label for="style-ad" class="col-sm-4 control-label">Background Color:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-4">
                             <select name="style-ad" id="style-ad"
                                     ng-options="option.name for option in data.availableStyle track by option.id"
                                     ng-model="properties.style"></select>
@@ -36,13 +38,13 @@
                     <h3>Product Info Box:</h3>
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Background Color:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-4">
                             <color-picker ng-model="properties.box.background" options="options"></color-picker>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Text Color:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-4">
                             <color-picker ng-model="properties.box.color" options="options"></color-picker>
                         </div>
                     </div>
@@ -50,17 +52,17 @@
                     <h3>Link Button:</h3>
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Background Color:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-4">
                             <color-picker ng-model="properties.link.background" options="options"></color-picker>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Text Color:</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-4">
                             <color-picker ng-model="properties.link.color" options="options"></color-picker>
                         </div>
                     </div>
-                    <button class="btn btn-primary">Get Product Feed and Generate Ad</button>
+                    <button ng-click="generateAd()" class="btn btn-primary">Get Product Feed and Generate Ad</button>
                 </form>
 
             </div>
@@ -68,24 +70,27 @@
                 <div class="row">
                     <h2>Preview:</h2>
                     <div class="preview-container">
-                        <div id="{{products[0].id}}" class="single-image text-center" ng-if="properties.style.id==1">
-                            <img ng-src="{{products[0].img}}">
-                            <div class="desc" ng-style="properties.box">
-                                <h4>{{products[0].name}}</h4>
-                                <p>{{products[0].description}}</p>
-                                <a href="{{products[0].link}}" class="btn btn-secondary" ng-style="properties.link">Buy now</a>
+                        <div class="container-list-product" ng-style="properties.carousel">
+                            <div id="{{product.id}}"
+                                 ng-repeat="product in lists"
+                                 class="single-image text-center">
+                                <img ng-src="{{product.img}}">
+                                <div class="desc" ng-style="properties.box">
+                                    <h4>{{product.name}}</h4>
+                                    <p>{{product.description}}</p>
+                                    <a href="{{product.link}}" class="btn btn-secondary" ng-style="properties.link">Buy now</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-image" ng-if="properties.style.id==2">stule 2</div>
+                        <div class="controller" ng-if="lists.length>1">
+                            <a href="javascript:;" class="arrow prev" ng-click="prevCard()">&lt;</a>
+                            <a href="javascript:;" class="arrow next" ng-click="nextCard()">&gt;</a>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <h2>HTML:</h2>
-                    <div class="col-xs-12">
-                        {{encoded}}
-                        {{decoded}}
-                        <code>HTML CODE</code>
-                    </div>
+                    <export-html export="export"></export-html>
                 </div>
             </div>
         </div>

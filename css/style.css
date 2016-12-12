@@ -1,18 +1,180 @@
+/****COLORS*****/
 html > body {
   margin: 0;
   padding: 0;
 }
 html > body > header {
-  background: #311B50 url("/img/affectv-logo.png") no-repeat fixed top;
   height: 60px;
 }
 
 .container {
-  background: #ccc;
-  color: #f0f;
+  background: #ECEDED;
+  color: #4d4d4d;
+  padding: 30px 30px 45px 30px;
+}
+.container h1,
+.container h2,
+.container h3 {
+  margin-bottom: 0;
+  margin-top: 0;
+  color: #4d4d4d;
+  font-weight: 600;
+}
+.container h1 {
+  color: #5E3592;
+  margin-bottom: 45px;
+}
+.container h2 {
+  color: #5E3592;
+  font-size: 3.8rem;
+  margin-bottom: 35px;
+}
+.container h3 {
+  color: #1BAABD;
+  font-size: 2.6rem;
+  margin-bottom: 20px;
+  margin-top: 35px;
+}
+.container p {
+  color: #4d4d4d;
+  font-size: 18px;
+}
+.container .form-horizontal .control-label {
+  text-align: left;
+  color: #311B50;
+}
+.container .btn-primary {
+  background: #5E3592;
+  border-color: #311B50;
+  color: #ffffff;
+  margin-top: 35px;
+}
+.container .btn-primary:hover {
+  background: #311B50;
+}
+.container select {
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #ccc;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  width: 100%;
+}
+.container .preview-container {
+  margin-bottom: 45px;
+}
+.container .code-insert textarea {
+  background: #ffffff;
+  color: #5E3592;
+  width: 100%;
+  height: 150px;
+  border: 1px solid #5E3592;
+  padding: 15px;
+  font-size: 13px;
 }
 
 .preview-container {
   width: 300px;
   height: 250px;
+  background: #ffffff;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.preview-container .controller .arrow {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  width: 50px;
+  line-height: 250px;
+  z-index: 2;
+}
+.preview-container .controller .arrow.prev {
+  left: 0;
+}
+.preview-container .controller .arrow.next {
+  right: 0;
+}
+.preview-container .container-list-product {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.preview-container .single-image {
+  position: relative;
+  width: 300px;
+  height: 100%;
+  float: left;
+}
+.preview-container .single-image img {
+  margin: 15px;
+  max-width: 300px;
+  max-height: 120px;
+}
+.preview-container .single-image .desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 103px;
+  padding: 15px;
+  z-index: 3;
+  -moz-transition: height 0.2s ease-in;
+  -o-transition: height 0.2s ease-in;
+  -webkit-transition: height 0.2s ease-in;
+  transition: height 0.2s ease-in;
+}
+.preview-container .single-image .desc h4 {
+  font-size: 18px;
+}
+.preview-container .single-image .desc .btn {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  width: 100px;
+  margin: 0 auto;
+}
+.preview-container .single-image .desc p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  font-size: 12px;
+  margin: 0;
+  color: #ffffff;
+  padding: 0 15px;
+  -moz-transition: all 0.4s ease-in;
+  -o-transition: all 0.4s ease-in;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+.preview-container .single-image .desc:hover {
+  height: 150px;
+  -moz-transition: height 0.4s ease-out;
+  -o-transition: height 0.4s ease-out;
+  -webkit-transition: height 0.4s ease-out;
+  transition: height 0.4s ease-out;
+}
+.preview-container .single-image .desc:hover p {
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+  bottom: 60px;
+  opacity: 1;
 }
